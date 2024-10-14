@@ -8,10 +8,28 @@
 </head>
 <body>
     <div class="header">
-        <h1>texto app</h1>
+        <h1>Wink Messenger</h1>
     </div>
     <div class="content">
-        <p>caixa de login</p>
+        <p>Bem-vindo ao Wink Messenger! Faça login para continuar.</p>
     </div>
+    <div class="login-container">
+        <h2>Entrar no Windows Live Messenger</h2>
+        <input type="text" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Senha">
+        <div class="options">
+            <label>
+                <input type="checkbox" id="remember"> Lembrar minhas ID e senha
+            </label>
+            <label>
+                <input type="checkbox" id="auto-login"> Entrar automaticamente
+            </label>
+        </div>
+        <button onclick="login()">Entrar</button>
+        <button onclick="cancel()">Cancelar</button>
+        <a href="#" class="forgot-password">Esqueceu sua senha?</a>
+        <a href="#" class="sign-up">Não possui um Windows Live ID? Inscreva-se</a>
+    </div>
+    <script src="scripts.js"></script>
 </body>
 </html>

@@ -1,11 +1,11 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    background-color: #ffffff; /* Mantido da configuração original */
 }
 
 .header {
-    background: linear-gradient(to bottom, #0077cc, #ffffff); 
+    background: linear-gradient(to bottom, #0077cc, #ffffff);
     color: white;
     padding: 20px;
     text-align: center;
@@ -13,6 +13,65 @@ body {
 }
 
 .content {
-    padding: 20px;
+    padding: 10px; /* Reduzido para aproximar a mensagem do topo */
     text-align: center;
+    margin-top: -30px; /* Move a mensagem para cima */
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    margin: -40px auto 20px; /* Move a caixa de login para cima e centraliza */
+}
+
+.login-container input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container .options {
+    margin: 10px 0;
+}
+
+.login-container .options label {
+    display: flex; /* Usa flexbox para alinhar melhor os elementos */
+    align-items: center; /* Alinha verticalmente os itens ao centro */
+    margin-bottom: 5px; /* Adiciona espaço entre as opções */
+}
+
+.login-container .options input[type="checkbox"] {
+    margin-right: 10px; /* Espaço à direita da caixa de seleção */
+}
+
+.login-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0078D7; /* configuração original */
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.login-container button:hover {
+    background-color: #005a9e; /* configuração original */
+}
+
+.login-container a {
+    display: block;
+    margin: 10px 0;
+    color: #0078D7; /* configuração original */
+    text-decoration: none;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
 }
