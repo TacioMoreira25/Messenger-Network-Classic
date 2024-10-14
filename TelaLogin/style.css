@@ -5,11 +5,11 @@ body {
 }
 
 .header {
-    background: linear-gradient(to bottom, #0077cc, #ffffff); /* Tom de azul mais escuro */
+    background: linear-gradient(to bottom, #0077cc, #ffffff); 
     color: white;
     padding: 20px;
     text-align: center;
-    height: 200px; /* Ajuste a altura conforme necessário */
+    height: 200px; 
 }
 
 .content {
