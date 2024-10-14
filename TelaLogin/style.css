@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+.header {
+    background: linear-gradient(to bottom, #0077cc, #ffffff); /* Tom de azul mais escuro */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    height: 200px; /* Ajuste a altura conforme necessário */
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
