@@ -1,21 +1,52 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #ffffff; /* Mantido da configuração original */
+    font-family: 'Arial', sans-serif; /* Mantenha Arial como fallback */
+    background-color: #ffffff;
 }
 
 .header {
-    background: linear-gradient(to bottom, #0077cc, #ffffff);
+    background: linear-gradient(to bottom, #0077cc, #ffffff); /* Gradiente azul */
     color: white;
     padding: 20px;
     text-align: center;
-    height: 200px; 
+    height: 150px; /* Altura um pouco menor */
+}
+
+/* Estilo atualizado para o texto "Wink Messenger" com tons claros */
+.header h1 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 36px; /* Tamanho reduzido */
+    color: #FFFFFF; /* Branco para melhor contraste */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Sombra para destaque */
+    text-align: center;
+    letter-spacing: 1px; /* Reduzido para manter legibilidade */
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-top: 10px; /* Ajuste para centralizar melhor no bloco */
 }
 
 .content {
-    padding: 10px; /* Reduzido para aproximar a mensagem do topo */
+    padding: 10px;
     text-align: center;
-    margin-top: -30px; /* Move a mensagem para cima */
+    margin-top: -100px; /* Move o texto para cima, sobre o tom azul */
+    margin-bottom: 40px; /* Adiciona espaço abaixo do texto */
+}
+
+/* Estilo atualizado para o texto "Bem-vindo ao Wink Messenger!" */
+.styled-text {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 20px; /* Tamanho de fonte ajustado */
+    color: #FFFFFF; /* Branco para melhor contraste */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Sombra mais forte e maior */
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    max-width: 80%;
+    margin: 0 auto;
+    line-height: 1.4;
 }
 
 .login-container {
@@ -25,53 +56,187 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 300px;
-    margin: -40px auto 20px; /* Move a caixa de login para cima e centraliza */
+    margin: 0 auto; /* Centraliza a caixa de login */
 }
 
-.login-container input {
-    display: block;
+/* Estilo para a nova caixa de login */
+.container {
+    max-width: 350px;
+    background: #F8F9FD;
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
+    border-radius: 40px;
+    padding: 25px 35px;
+    border: 5px solid rgb(255, 255, 255);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
+    margin: 20px;
+}
+
+.heading {
+    text-align: center;
+    font-weight: 900;
+    font-size: 30px;
+    color: rgb(16, 137, 211);
+}
+
+.form {
+    margin-top: 20px;
+}
+
+.form .input {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.login-container .options {
-    margin: 10px 0;
-}
-
-.login-container .options label {
-    display: flex; /* Usa flexbox para alinhar melhor os elementos */
-    align-items: center; /* Alinha verticalmente os itens ao centro */
-    margin-bottom: 5px; /* Adiciona espaço entre as opções */
-}
-
-.login-container .options input[type="checkbox"] {
-    margin-right: 10px; /* Espaço à direita da caixa de seleção */
-}
-
-.login-container button {
-    padding: 10px 20px;
+    background: white;
     border: none;
-    border-radius: 5px;
-    background-color: #0078D7; /* configuração original */
-    color: white;
-    cursor: pointer;
-    margin: 5px;
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-top: 15px;
+    box-shadow: #cff0ff 0px 10px 10px -5px;
+    border-inline: 2px solid transparent;
 }
 
-.login-container button:hover {
-    background-color: #005a9e; /* configuração original */
+.form .input::-moz-placeholder {
+    color: rgb(170, 170, 170);
 }
 
-.login-container a {
+.form .input::placeholder {
+    color: rgb(170, 170, 170);
+}
+
+.form .input:focus {
+    outline: none;
+    border-inline: 2px solid #12B1D1;
+}
+
+.form .forgot-password {
     display: block;
-    margin: 10px 0;
-    color: #0078D7; /* configuração original */
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.form .forgot-password a {
+    font-size: 11px;
+    color: #0099ff;
     text-decoration: none;
 }
 
-.login-container a:hover {
-    text-decoration: underline;
+.form .login-button {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+    color: white;
+    padding-block: 15px;
+    margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.form .login-button:hover {
+    transform: scale(1.03);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+}
+
+.form .login-button:active {
+    transform: scale(0.95);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+}
+
+.social-account-container {
+    margin-top: 25px;
+}
+
+.social-account-container .title {
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    color: rgb(170, 170, 170);
+}
+
+.social-account-container .social-accounts {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.social-account-container .social-accounts .social-button {
+    background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
+    border: 5px solid white;
+    padding: 5px;
+    border-radius: 50%;
+    width: 40px;
+    aspect-ratio: 1;
+    display: grid;
+    place-content: center;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.social-account-container .social-accounts .social-button .svg {
+    fill: white;
+    margin: auto;
+}
+
+.social-account-container .social-accounts .social-button:hover {
+    transform: scale(1.2);
+}
+
+.social-account-container .social-accounts .social-button:active {
+    transform: scale(0.9);
+}
+
+.agreement {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.agreement a {
+    text-decoration: none;
+    color: #0099ff;
+    font-size: 9px;
+}
+
+/* Estilos para as opções de lembrete de senha */
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* Estilo do checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input {
+    display: none; /* Esconde o checkbox */
+}
+
+.checkmark {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #0099ff;
+    border-radius: 3px;
+    position: relative;
+    margin-right: 5px;
+}
+
+.checkbox-container input:checked + .checkmark {
+    background-color: #0099ff; /* Cor de fundo quando selecionado */
+}
+
+.checkbox-container input:checked + .checkmark::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 }
