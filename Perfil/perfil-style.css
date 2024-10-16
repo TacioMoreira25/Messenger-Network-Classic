@@ -1,0 +1,107 @@
+/* Estilo principal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #a7d2ff, #ffffff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.msn-container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    width: 320px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #a7d2ff;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.profile-info h2 {
+    margin-bottom: 5px;
+    color: #2a8fd4;
+    font-size: 18px;
+}
+
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #a7d2ff;
+    font-size: 14px;
+    background: white;
+}
+
+/* Janela de opções de perfil com barra de rolagem */
+.profile-options {
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100px;
+    height: 150px;
+    overflow-y: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-options ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.profile-options ul li {
+    margin-bottom: 5px;
+}
+
+.profile-options ul li img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+}
+
+.hidden {
+    display: none;
+}
+
+.contact-list {
+    margin-top: 10px;
+}
+
+.contact-group h3 {
+    color: #2a8fd4;
+    margin-bottom: 5px;
+}
+
+.contact-group ul {
+    list-style: none;
+}
+
+.contact-group li {
+    font-size: 14px;
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}

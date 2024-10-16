@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="perfil-style.css">
+</head>
+<body>
+
+<div class="msn-container">
+    <!-- Cabeçalho do perfil -->
+    <div class="profile-header">
+        <img id="profilePic" class="profile-pic" src="assets/profile1.png" alt="Foto de Perfil" onclick="toggleProfileOptions()">
+        <div class="profile-info">
+            <h2 id="profileName">Seu Nome</h2>
+            <select id="status" onchange="saveProfileStatus()">
+                <option value="online">🟢 Online</option>
+                <option value="offline">⚫ Offline</option>
+                <option value="ausente">🟡 Ausente</option>
+                <option value="ocupado">🔴 Ocupado</option>
+                <option value="invisivel">🔵 Invisível</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Janela pop-up menor com barra de rolagem -->
+    <div id="profileOptions" class="profile-options hidden">
+        <ul>
+            <li><img src="assets/profile1.png" alt="Opção 1" onclick="changeProfilePicture('assets/profile1.png')"></li>
+            <li><img src="assets/profile2.png" alt="Opção 2" onclick="changeProfilePicture('assets/profile2.png')"></li>
+            <li><img src="assets/profile3.png" alt="Opção 3" onclick="changeProfilePicture('assets/profile3.png')"></li>
+            <li><img src="assets/profile4.jpeg" alt="Opção 4" onclick="changeProfilePicture('assets/profile4.jpeg')"></li>
+            <li><img src="assets/profile5.jpeg" alt="Opção 5" onclick="changeProfilePicture('assets/profile5.jpeg')"></li>
+            <li><img src="assets/profile6.jpeg" alt="Opção 6" onclick="changeProfilePicture('assets/profile6.jpeg')"></li>
+            <li><img src="assets/profile7.jpeg" alt="Opção 7" onclick="changeProfilePicture('assets/profile7.jpeg')"></li>
+            <li><img src="assets/profile8.jpeg" alt="Opção 8" onclick="changeProfilePicture('assets/profile8.jpeg')"></li>
+        </ul>
+    </div>
+
+    <!-- Lista de contatos -->
+    <div class="contact-list">
+        <div class="contact-group">
+            <h3>Online (3)</h3>
+            <ul>
+                <li>🟢 @derga_cby</li>
+                <li>🟢 Decen</li>
+                <li>🟢 Júliana</li>
+            </ul>
+        </div>
+        <div class="contact-group">
+            <h3>Ocupado (2)</h3>
+            <ul>
+                <li>🔴 Murilo</li>
+                <li>🔴 Chris</li>
+            </ul>
+        </div>
+        <div class="contact-group">
+            <h3>Offline (4)</h3>
+            <ul>
+                <li>⚫ Manu Azeeni</li>
+                <li>⚫ Juninho</li>
+                <li>⚫ Rodolfo Leonardo</li>
+                <li>⚫ Ítalo</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="perfil-script.js"></script>
+
+</body>
+</html>
