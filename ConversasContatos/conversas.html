@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversa e Contatos</title>
+    <link rel="stylesheet" href="conversas-styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar com contatos e funcionalidades -->
+        <div class="sidebar">
+            <h2>Yasmin Leigh</h2>
+            <div class="credits">
+                <p>Ligar para telefones</p>
+                <p>7,94</p>
+            </div>
+            <input type="text" placeholder="Buscar" class="search">
+            <button id="new-group-btn">Criar Grupo</button>
+            <div class="favorites">
+                <h3>Favoritos</h3>
+                <ul id="favorite-list">
+                    <li data-contact="Erika Berg" onclick="openChat('Erika Berg')">Erika Berg</li>
+                    <li data-contact="Dexter Nilsson" onclick="openChat('Dexter Nilsson')">Dexter Nilsson</li>
+                </ul>
+            </div>
+            <div class="contacts">
+                <h3>Todos</h3>
+                <ul id="contacts-list">
+                    <li data-contact="Anna Davies" onclick="openChat('Anna Davies')">Anna Davies</li>
+                    <li data-contact="Beth Davies" onclick="openChat('Beth Davies')">Beth Davies</li>
+                    <li data-contact="Charlotte Spencer" onclick="openChat('Charlotte Spencer')">Charlotte Spencer</li>
+                    <li data-contact="Elena Nilsson" onclick="openChat('Elena Nilsson')">Elena Nilsson</li>
+                    <li data-contact="Jaswinder Singh" onclick="openChat('Jaswinder Singh')">Jaswinder Singh</li>
+                </ul>
+            </div>
+            <button id="add-contact-btn">Adicionar Contato</button>
+        </div>
+
+        <!-- Seção de Chat -->
+        <div class="chat-section">
+            <div class="chat-header">
+                <h3 id="chat-header">Selecionar contato</h3>
+                <span id="status">Offline</span>
+                <div class="call-options">
+                    <button onclick="audioCall()">Chamada de Áudio</button>
+                    <button onclick="videoCall()">Chamada de Vídeo</button>
+                </div>
+            </div>
+            <div class="chat-window" id="chat-window">
+                <p>Selecione um contato para iniciar uma conversa.</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Escreva uma mensagem...">
+                <button id="emoji-btn">😊</button>
+                <input type="file" id="file-input" style="display: none;">
+                <button onclick="document.getElementById('file-input').click()">📎</button>
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="conversas-script.js"></script>
+</body>
+</html>
