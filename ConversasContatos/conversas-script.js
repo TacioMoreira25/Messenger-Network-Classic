@@ -1,75 +1,106 @@
-let currentContact = null;
+// Armazena as mensagens do chat
+let chatMessages = [];
+let contacts = [
+    { name: "Erika Berg", img: "assets/erika.jpg" },
+    { name: "Anna Davies", img: "assets/anna.jpg" }
+];
 
-// Abre o chat para o contato selecionado
-function openChat(contactName) {
-    currentContact = contactName;
-    document.getElementById('chat-header').innerText = contactName;
-    document.getElementById('status').innerText = "Online";
-    document.getElementById('chat-window').innerHTML = `<p>Conversa com ${contactName} iniciada.</p>`;
-}
-
-// Envia mensagem para o contato atual
+// Função para enviar a mensagem e exibi-la no chat
 function sendMessage() {
-    const input = document.getElementById('message-input');
-    const messageText = input.value.trim();
-    
-    if (messageText && currentContact) {
-        const chatWindow = document.getElementById('chat-window');
-        const newMessage = document.createElement('div');
-        newMessage.classList.add('message');
-        newMessage.innerHTML = `<p><strong>Você:</strong> ${messageText}</p>`;
-        
-        chatWindow.appendChild(newMessage);
-        input.value = '';
-        chatWindow.scrollTop = chatWindow.scrollHeight; // Scroll automático para última mensagem
+    let message = document.getElementById("message-input").value;
+
+    if (message) {
+        // Adiciona a mensagem ao array de mensagens
+        chatMessages.push({
+            type: 'sent',  // Definimos o tipo de mensagem enviada
+            content: message,
+            timestamp: new Date().toLocaleTimeString()
+        });
+
+        // Exibe a mensagem no chat
+        updateChatWindow();
+        document.getElementById("message-input").value = '';  // Limpa o campo de entrada
     }
 }
 
-// Função para abrir chamada de áudio
+// Atualiza a janela de chat para exibir as mensagens
+function updateChatWindow() {
+    const chatWindow = document.getElementById("chat-window");
+    chatWindow.innerHTML = '';  // Limpa o chat antes de adicionar as mensagens
+
+    chatMessages.forEach(msg => {
+        const messageElement = document.createElement('div');
+        messageElement.className = `chat-message ${msg.type === 'sent' ? 'sent-message' : 'received-message'}`;
+        messageElement.innerHTML = `
+            <span>${msg.content}</span>
+            <span class="timestamp">${msg.timestamp}</span>
+        `;
+        chatWindow.appendChild(messageElement);
+    });
+
+    // Rola para baixo na janela de chat
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+}
+
+// Função para abrir o chat com um contato ou grupo
+function openChat(contactName) {
+    document.getElementById("chat-header").textContent = contactName;
+    document.getElementById("status").textContent = 'Online';
+
+    // Define a imagem de perfil do contato
+    const contactProfilePic = document.getElementById("contact-profile-pic");
+    const contact = contacts.find(c => c.name === contactName);
+
+    // Define a imagem de perfil com base no contato
+    if (contact) {
+        contactProfilePic.src = contact.img;  // Usamos a imagem do contato
+    } else {
+        contactProfilePic.src = "assets/default-contact.jpg"; // Imagem padrão
+    }
+
+    chatMessages = [];  // Reseta as mensagens ao abrir um novo chat
+    updateChatWindow();
+}
+
+// Funções de chamadas
 function audioCall() {
-    if (currentContact) {
-        alert(`Iniciando chamada de áudio com ${currentContact}...`);
-    }
+    alert("Iniciando chamada de áudio...");
 }
 
-// Função para abrir chamada de vídeo
-function videoCall() {
-    if (currentContact) {
-        alert(`Iniciando chamada de vídeo com ${currentContact}...`);
-    }
+function startVideoCall() {
+    alert("Iniciando chamada de vídeo...");
 }
 
-// Exibir painel de emojis (Simulação simples)
-document.getElementById('emoji-btn').addEventListener('click', () => {
-    const emoji = prompt("Selecione um emoji: 😊, 😁, 😎, 😢");
-    if (emoji && currentContact) {
-        const chatWindow = document.getElementById('chat-window');
-        const newMessage = document.createElement('div');
-        newMessage.classList.add('message');
-        newMessage.innerHTML = `<p><strong>Você:</strong> ${emoji}</p>`;
-        
-        chatWindow.appendChild(newMessage);
-        document.getElementById('chat-window').scrollTop = chatWindow.scrollHeight;
-    }
-});
-
-// Botão para adicionar novo grupo (simulação)
-document.getElementById('new-group-btn').addEventListener('click', () => {
-    const groupName = prompt("Nome do Grupo:");
+// Função para criar um novo grupo
+function createGroup() {
+    const groupName = prompt("Digite o nome do novo grupo:");
     if (groupName) {
-        const groupList = document.createElement('li');
-        groupList.innerHTML = `${groupName}`;
-        document.getElementById('favorite-list').appendChild(groupList);
+        const groupList = document.getElementById("group-list");
+        const newGroupItem = document.createElement("li");
+        newGroupItem.textContent = groupName;
+        groupList.appendChild(newGroupItem);
+        alert(`Grupo '${groupName}' criado!`);
     }
-});
+}
 
-// Adicionar novo contato
-document.getElementById('add-contact-btn').addEventListener('click', () => {
-    const newContact = prompt("Nome do contato:");
-    if (newContact) {
-        const contactList = document.createElement('li');
-        contactList.setAttribute('onclick', `openChat('${newContact}')`);
-        contactList.innerText = newContact;
-        document.getElementById('contacts-list').appendChild(contactList);
+// Função para adicionar um novo contato
+function addContact() {
+    const contactName = prompt("Digite o nome do novo contato:");
+    const contactImg = prompt("Digite o caminho da imagem do contato:");
+    if (contactName && contactImg) {
+        contacts.push({ name: contactName, img: contactImg });
+        const contactsList = document.getElementById("contacts-list");
+        const newContactItem = document.createElement("li");
+        newContactItem.textContent = contactName;
+        newContactItem.onclick = () => openChat(contactName);
+        
+        // Adiciona a imagem do contato
+        const imgElement = document.createElement("img");
+        imgElement.src = contactImg;
+        imgElement.className = "profile-pic-mini";
+        newContactItem.prepend(imgElement);
+        
+        contactsList.appendChild(newContactItem);
+        alert(`Contato '${contactName}' adicionado!`);
     }
-});
+}

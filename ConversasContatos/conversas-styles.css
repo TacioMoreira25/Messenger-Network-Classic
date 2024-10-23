@@ -1,151 +1,174 @@
-* {
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background: linear-gradient(to bottom, #a3d5ff, #ffffff);
     display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
 }
 
 .container {
     display: flex;
-    width: 90%;
-    height: 85vh;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .sidebar {
-    width: 30%;
-    background-color: #ffffff;
-    border-radius: 15px 0 0 15px;
+    width: 300px;
+    background-color: #f0f0f0;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.credits {
+.profile {
     display: flex;
-    justify-content: space-between;
-    font-size: 0.9em;
+    align-items: center;
     margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 .search {
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+    width: 100%;
+    padding: 8px;
     margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #0078d7;
-    color: white;
+    width: auto; /* Mude para auto para os botões serem mais compactos */
+    padding: 8px 12px; /* Ajuste o padding para menor */
+    margin: 5px 0;
     border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
     cursor: pointer;
+    font-size: 0.9em; /* Ajuste o tamanho da fonte se necessário */
 }
 
 button:hover {
-    background-color: #005fa3;
+    background-color: #0056b3;
 }
 
-.favorites, .contacts {
-    margin-bottom: 20px;
+/* Estilo das listas de contatos, grupos e favoritos */
+.favorites, .groups, .contacts {
+    margin-top: 20px;
 }
 
-.favorites h3, .contacts h3 {
-    font-size: 1.2em;
+h3 {
     margin-bottom: 10px;
+}
+
+.profile-pic-mini {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 ul {
     list-style-type: none;
+    padding: 0;
 }
 
-li {
-    margin-bottom: 10px;
+ul li {
+    padding: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
-li:hover {
-    color: #0078d7;
+ul li:hover {
+    background-color: #e0e0e0;
 }
 
+/* Estilo da seção de chat */
 .chat-section {
     flex-grow: 1;
-    background-color: #f9f9f9;
-    border-radius: 0 15px 15px 0;
+    background-color: white;
     display: flex;
     flex-direction: column;
-    padding: 20px;
 }
 
 .chat-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-size: 1.2em;
-}
-
-.call-options button {
-    margin-left: 5px;
-    padding: 5px;
-    background-color: #28a745;
+    padding: 15px;
+    background-color: #007bff;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
-.call-options button:hover {
-    background-color: #218838;
+.contact-profile {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Espaço entre a imagem e o nome */
+}
+
+.profile-pic-chat {
+    width: 40px; /* Ajuste o tamanho conforme necessário */
+    height: 40px;
+    border-radius: 8px; /* Cantos arredondados */
+    border: 2px solid #007bff; /* Borda azul */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 .chat-window {
     flex-grow: 1;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    padding: 20px;
     overflow-y: auto;
+    border-top: 1px solid #ddd;
 }
 
 .chat-input {
     display: flex;
-    gap: 10px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
 }
 
 .chat-input input {
     flex-grow: 1;
     padding: 10px;
-    border-radius: 10px;
     border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .chat-input button {
-    padding: 10px;
-    background-color: #0078d7;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
+    margin-left: 5px; /* Reduzir o espaço entre os botões */
 }
 
-.chat-input button:hover {
-    background-color: #005fa3;
+/* Estilo das mensagens no chat */
+.chat-message {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    max-width: 60%;
+    position: relative;
+    clear: both;
+}
+
+.sent-message {
+    background-color: #daf8cb; /* Verde claro para mensagens enviadas */
+    align-self: flex-end;
+    margin-left: auto;
+    text-align: right;
+}
+
+.received-message {
+    background-color: #ffffff; /* Branco para mensagens recebidas */
+    align-self: flex-start;
+    margin-right: auto;
+    text-align: left;
+}
+
+.timestamp {
+    font-size: 0.8em;
+    color: #888; /* Cor mais suave para o timestamp */
+    margin-top: 5px;
+    display: block;
 }
