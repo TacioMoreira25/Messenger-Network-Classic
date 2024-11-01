@@ -1,9 +1,9 @@
-// Armazena as mensagens do chat
 let chatMessages = [];
 let contacts = [
     { name: "Erika Berg", img: "assets/erika.jpg" },
     { name: "Anna Davies", img: "assets/anna.jpg" }
 ];
+let currentSender = 'Você'; // Remetente padrão
 
 // Função para enviar a mensagem e exibi-la no chat
 function sendMessage() {
@@ -12,7 +12,7 @@ function sendMessage() {
     if (message) {
         // Adiciona a mensagem ao array de mensagens
         chatMessages.push({
-            type: 'sent',  // Definimos o tipo de mensagem enviada
+            sender: currentSender,  // Armazena o remetente
             content: message,
             timestamp: new Date().toLocaleTimeString()
         });
@@ -30,9 +30,9 @@ function updateChatWindow() {
 
     chatMessages.forEach(msg => {
         const messageElement = document.createElement('div');
-        messageElement.className = `chat-message ${msg.type === 'sent' ? 'sent-message' : 'received-message'}`;
+        messageElement.className = `chat-message ${msg.sender === 'Você' ? 'sent-message' : 'received-message'}`;
         messageElement.innerHTML = `
-            <span>${msg.content}</span>
+            ${msg.content}
             <span class="timestamp">${msg.timestamp}</span>
         `;
         chatWindow.appendChild(messageElement);
@@ -51,7 +51,6 @@ function openChat(contactName) {
     const contactProfilePic = document.getElementById("contact-profile-pic");
     const contact = contacts.find(c => c.name === contactName);
 
-    // Define a imagem de perfil com base no contato
     if (contact) {
         contactProfilePic.src = contact.img;  // Usamos a imagem do contato
     } else {
@@ -94,7 +93,6 @@ function addContact() {
         newContactItem.textContent = contactName;
         newContactItem.onclick = () => openChat(contactName);
         
-        // Adiciona a imagem do contato
         const imgElement = document.createElement("img");
         imgElement.src = contactImg;
         imgElement.className = "profile-pic-mini";
@@ -102,5 +100,57 @@ function addContact() {
         
         contactsList.appendChild(newContactItem);
         alert(`Contato '${contactName}' adicionado!`);
+    }
+}
+
+// Função para alternar o remetente da mensagem
+function switchSender() {
+    currentSender = currentSender === 'Você' ? 'Contato' : 'Você'; // Alterna entre 'Você' e 'Contato'
+    const switchSenderBtn = document.getElementById("switch-sender-btn");
+    
+    // Alterna a cor do botão conforme o remetente
+    if (currentSender === 'Você') {
+        switchSenderBtn.style.backgroundColor = "#28a745"; // Verde para Você
+        switchSenderBtn.style.color = "white"; // Texto branco
+    } else {
+        switchSenderBtn.style.backgroundColor = "#007bff"; // Azul para Contato
+        switchSenderBtn.style.color = "white"; // Texto branco
+    }
+}
+
+// Função para verificar se a tecla Enter foi pressionada
+function checkEnter(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+// Função para abrir o seletor de emojis
+function toggleEmojiPicker() {
+    const emojiPicker = document.getElementById("emoji-picker");
+    emojiPicker.style.display = emojiPicker.style.display === 'none' ? 'block' : 'none';
+}
+
+// Função para inserir o emoji na caixa de mensagem
+function insertEmoji(emoji) {
+    const messageInput = document.getElementById("message-input");
+    messageInput.value += emoji; // Adiciona o emoji ao final da mensagem
+    toggleEmojiPicker(); // Fecha o seletor de emojis após a seleção
+}
+
+// Função para lidar com o arquivo anexado
+function handleFileSelect(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            chatMessages.push({
+                sender: currentSender, // Armazena o remetente
+                content: `<img src="${e.target.result}" alt="Imagem" style="max-width: 200px;"/>`,
+                timestamp: new Date().toLocaleTimeString()
+            });
+            updateChatWindow();
+        };
+        reader.readAsDataURL(file); // Lê o arquivo como URL
     }
 }

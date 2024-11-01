@@ -18,7 +18,6 @@
             <input type="text" placeholder="Buscar contatos..." class="search">
             <button id="new-group-btn" onclick="createGroup()">Novo Grupo</button>
 
-            <!-- Seção de Favoritos -->
             <div class="favorites">
                 <h3>Favoritos</h3>
                 <ul id="favorite-list">
@@ -28,7 +27,6 @@
                 </ul>
             </div>
 
-            <!-- Seção de Grupos -->
             <div class="groups">
                 <h3>Grupos</h3>
                 <ul id="group-list">
@@ -36,7 +34,6 @@
                 </ul>
             </div>
 
-            <!-- Seção de Contatos -->
             <div class="contacts">
                 <h3>Todos</h3>
                 <ul id="contacts-list">
@@ -64,10 +61,19 @@
                 <p>Selecione um contato para iniciar uma conversa.</p>
             </div>
             <div class="chat-input">
-                <input type="text" id="message-input" placeholder="Escreva uma mensagem...">
-                <button id="emoji-btn" title="Emoji"><i class="fas fa-smile"></i></button>
+                <button id="switch-sender-btn" title="Mudar remetente" onclick="switchSender()" style="background-color: #28a745; color: white;">↔️</button>
+                <input type="text" id="message-input" placeholder="Escreva uma mensagem..." onkeypress="checkEnter(event)">
+                <button id="emoji-btn" title="Emoji" onclick="toggleEmojiPicker()"><i class="fas fa-smile"></i></button>
+                <div id="emoji-picker" style="display: none;">
+                    <span onclick="insertEmoji('😊')">😊</span>
+                    <span onclick="insertEmoji('😂')">😂</span>
+                    <span onclick="insertEmoji('😍')">😍</span>
+                    <span onclick="insertEmoji('😢')">😢</span>
+                    <span onclick="insertEmoji('😎')">😎</span>
+                    <!-- Adicione mais emojis conforme necessário -->
+                </div>
                 <button id="file-btn" title="Anexar arquivo" onclick="document.getElementById('file-input').click()"><i class="fas fa-paperclip"></i></button>
-                <input type="file" id="file-input" style="display: none;">
+                <input type="file" id="file-input" style="display: none;" accept="image/*" onchange="handleFileSelect(event)">
                 <button id="send-btn" title="Enviar mensagem" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>

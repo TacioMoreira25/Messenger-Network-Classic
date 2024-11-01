@@ -56,7 +56,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Estilo das listas de contatos, grupos e favoritos */
 .favorites, .groups, .contacts {
     margin-top: 20px;
 }
@@ -88,7 +87,6 @@ ul li:hover {
     background-color: #e0e0e0;
 }
 
-/* Estilo da seção de chat */
 .chat-section {
     flex-grow: 1;
     background-color: white;
@@ -107,15 +105,15 @@ ul li:hover {
 .contact-profile {
     display: flex;
     align-items: center;
-    margin-right: 10px; /* Espaço entre a imagem e o nome */
+    margin-right: 10px;
 }
 
 .profile-pic-chat {
-    width: 40px; /* Ajuste o tamanho conforme necessário */
+    width: 40px;
     height: 40px;
-    border-radius: 8px; /* Cantos arredondados */
-    border: 2px solid #007bff; /* Borda azul */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 8px;
+    border: 2px solid #007bff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .chat-window {
@@ -129,6 +127,7 @@ ul li:hover {
     display: flex;
     padding: 10px;
     border-top: 1px solid #ddd;
+    position: relative;
 }
 
 .chat-input input {
@@ -142,33 +141,49 @@ ul li:hover {
     margin-left: 5px; /* Reduzir o espaço entre os botões */
 }
 
+#emoji-picker {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000;
+    margin-top: 5px; /* Ajusta a margem para o botão de emojis */
+    right: 0; /* Faz com que o seletor de emojis se alinhe à direita */
+}
+
+#emoji-picker span {
+    cursor: pointer;
+    padding: 5px;
+}
+
+#emoji-picker span:hover {
+    background-color: #e0e0e0;
+}
+
 /* Estilo das mensagens no chat */
 .chat-message {
     padding: 10px;
+    border-radius: 5px;
     margin: 5px 0;
-    border-radius: 10px;
-    max-width: 60%;
-    position: relative;
-    clear: both;
+    max-width: 70%; /* Limita a largura das mensagens */
 }
 
 .sent-message {
-    background-color: #daf8cb; /* Verde claro para mensagens enviadas */
-    align-self: flex-end;
-    margin-left: auto;
-    text-align: right;
+    background-color: #dcf8c6;
+    align-self: flex-end; /* Alinha a mensagem enviada à direita */
 }
 
 .received-message {
-    background-color: #ffffff; /* Branco para mensagens recebidas */
-    align-self: flex-start;
-    margin-right: auto;
-    text-align: left;
+    background-color: #f1f0f0;
+    align-self: flex-start; /* Alinha a mensagem recebida à esquerda */
 }
 
+/* Estilo do timestamp */
 .timestamp {
     font-size: 0.8em;
-    color: #888; /* Cor mais suave para o timestamp */
-    margin-top: 5px;
-    display: block;
+    color: gray;
+    float: right; /* Alinha o timestamp à direita */
+    margin-left: 10px; /* Espaço entre a mensagem e o timestamp */
 }
